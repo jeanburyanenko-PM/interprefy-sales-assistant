@@ -23,12 +23,21 @@ export async function onRequestPost(context) {
         "x-api-key": context.env.ANTHROPIC_API_KEY,
         "anthropic-version": "2023-06-01"
       },
-      body: JSON.stringify({
-        model: body.model,
-        max_tokens: body.max_tokens,
-        system: body.system,
-        messages: body.messages
-      })
+  const knowledge = await loadKnowledge();
+
+body: JSON.stringify({
+  model: body.model,
+  max_tokens: body.max_tokens,
+
+  system: `
+${body.system}
+
+ADDITIONAL KNOWLEDGE:
+${knowledge}
+  `,
+
+  messages: body.messages
+})
     });
 
     const data = await response.json();
