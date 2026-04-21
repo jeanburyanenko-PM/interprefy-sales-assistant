@@ -1,34 +1,6 @@
-async function loadKnowledge() {
-  try {
-    const baseUrl = "https://6ab8d395.interprefy-sales-assistant.pages.dev/data";
-
-    const files = [
-      "integrations.txt",
-      "setups.txt"
-      // añade más aquí
-    ];
-
-    let combinedText = "";
-
-    for (const file of files) {
-      const res = await fetch(baseUrl + file);
-      const text = await res.text();
-
-      combinedText += `\n\n### ${file}\n${text}`;
-    }
-
-    return combinedText;
-
-  } catch (err) {
-    console.log("Error loading knowledge:", err);
-    return "";
-  }
-}
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
-    
-  const knowledge = await loadKnowledge();
 
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -37,20 +9,22 @@ export async function onRequestPost(context) {
         "x-api-key": context.env.ANTHROPIC_API_KEY,
         "anthropic-version": "2023-06-01"
       },
+      body: JSON.stringify({
+        model: body.model,
+        max_tokens: body.max_tokens,
 
-body: JSON.stringify({
-  model: body.model,
-  max_tokens: body.max_tokens,
+        system: `
+You are an AI sales assistant for Interprefy.
 
-  system: `
-${body.system}
+IMPORTANT:
+You MUST ONLY use the knowledge base below.
 
-ADDITIONAL KNOWLEDGE:
+KNOWLEDGE BASE:
 ${knowledge}
-  `,
+        `,
 
-  messages: body.messages
-})
+        messages: body.messages
+      })
     });
 
     const data = await response.json();
