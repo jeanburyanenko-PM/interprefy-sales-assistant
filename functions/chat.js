@@ -41,6 +41,8 @@ async function loadKnowledge() {
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
+    
+  const knowledge = await loadKnowledge();
 
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -49,7 +51,6 @@ export async function onRequestPost(context) {
         "x-api-key": context.env.ANTHROPIC_API_KEY,
         "anthropic-version": "2023-06-01"
       },
-  const knowledge = await loadKnowledge();
 
 body: JSON.stringify({
   model: body.model,
