@@ -647,7 +647,7 @@ async function sendMessage() {
 
   try {
     if (!API_KEY) { showApiModal(); isLoading = false; document.getElementById('sendBtn').disabled = false; return; }
-    const response = await fetch('/.netlify/functions/chat', {
+    const response = await fetch('/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
