@@ -1,5 +1,31 @@
 async function loadKnowledge() {
   try {
+    const baseUrl = "https://TU-DOMINIO.pages.dev/data/";
+
+    const files = [
+      "integrations.txt",
+      "setups.txt"
+      // añade más aquí
+    ];
+
+    let combinedText = "";
+
+    for (const file of files) {
+      const res = await fetch(baseUrl + file);
+      const text = await res.text();
+
+      combinedText += `\n\n### ${file}\n${text}`;
+    }
+
+    return combinedText;
+
+  } catch (err) {
+    console.log("Error loading knowledge:", err);
+    return "";
+  }
+}
+async function loadKnowledge() {
+  try {
     const res = await fetch("https://TU-PROYECTO.pages.dev/knowledge.json");
     const data = await res.json();
 
