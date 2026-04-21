@@ -1,6 +1,35 @@
+async function loadKnowledge() {
+  const baseUrl = "https://interprepy-sales-assistant.pages.dev/data/";
+
+  const files = [
+    "integrations.txt"
+  ];
+
+  let combinedText = "";
+
+  for (const file of files) {
+    try {
+      const res = await fetch(baseUrl + file);
+
+      if (!res.ok) continue;
+
+      const text = await res.text();
+      combinedText += `\n\n### ${file}\n${text}`;
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  return combinedText;
+}
+
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
+
+    // ✅ SIEMPRE FUERA del JSON
+    const knowledge = await loadKnowledge();
 
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
