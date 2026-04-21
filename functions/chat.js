@@ -24,20 +24,6 @@ async function loadKnowledge() {
     return "";
   }
 }
-async function loadKnowledge() {
-  try {
-    const res = await fetch("https://6ab8d395.interprefy-sales-assistant.pages.dev/data");
-    const data = await res.json();
-
-    return data.map(doc => {
-      return `### ${doc.title}\n${doc.content}`;
-    }).join("\n\n");
-
-  } catch (err) {
-    console.log("Error loading knowledge:", err);
-    return "";
-  }
-}
 export async function onRequestPost(context) {
   try {
     const body = await context.request.json();
