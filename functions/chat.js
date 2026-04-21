@@ -1,6 +1,6 @@
 async function loadKnowledge() {
   try {
-    const baseUrl = "https://TU-DOMINIO.pages.dev/data/";
+    const baseUrl = "https://6ab8d395.interprefy-sales-assistant.pages.dev/data";
 
     const files = [
       "integrations.txt",
