@@ -26,7 +26,7 @@ async function loadKnowledge() {
 }
 async function loadKnowledge() {
   try {
-    const res = await fetch("https://TU-PROYECTO.pages.dev/knowledge.json");
+    const res = await fetch("https://6ab8d395.interprefy-sales-assistant.pages.dev/data");
     const data = await res.json();
 
     return data.map(doc => {
