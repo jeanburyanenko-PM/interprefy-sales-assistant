@@ -30,7 +30,8 @@ export async function onRequestPost(context) {
 
     // ✅ SIEMPRE FUERA del JSON
     const knowledge = await loadKnowledge();
-
+console.log("KNOWLEDGE:", knowledge);
+    
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
