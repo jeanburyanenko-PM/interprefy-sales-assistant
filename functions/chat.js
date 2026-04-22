@@ -2,8 +2,9 @@ async function loadKnowledge() {
   const baseUrl = "https://interprepy-sales-assistant.pages.dev/";
 
   const files = [
-    "integrations.txt"
-  ];
+  "integrations.txt",
+  "setups.txt"
+];
 
   let combinedText = "";
 
