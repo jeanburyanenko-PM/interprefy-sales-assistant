@@ -1,5 +1,5 @@
 async function loadKnowledge() {
-  const baseUrl = "https://interprepy-sales-assistant.pages.dev/";
+  const baseUrl = "https://interprefy-sales-assistant2.pages.dev/";
 
   const files = [
     "integrations.txt",
