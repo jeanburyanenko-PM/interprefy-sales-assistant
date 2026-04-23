@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Sales Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange: #FF5A1E;
+    --orange-light: #FFF0EB;
+    --orange-dark: #CC4010;
+    --bg: #F7F5F2;
+    --surface: #FFFFFF;
+    --surface2: #F2EFE9;
+    --text: #1A1714;
+    --text-muted: #7A766E;
+    --text-light: #B0AAA0;
+    --border: #E5E0D8;
+    --border-strong: #C8C0B4;
+    --user-bubble: #1A1714;
+    --ai-bubble: #FFFFFF;
+    --radius: 16px;
+    --radius-sm: 8px;
+    --radius-xs: 4px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--orange);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-mark svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+  }
+
+  .header-titles { flex: 1; }
+  .header-titles h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .header-titles p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 1px;
+  }
+
+  .status-dot {
+    width: 8px; height: 8px;
+    background: #22C55E;
+    border-radius: 50%;
+    margin-right: 6px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .header-badge {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--orange);
+    background: var(--orange-light);
+    border: 1px solid #FFD5C2;
+    border-radius: 20px;
+    padding: 4px 10px;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+
+  /* LAYOUT */
+  .app-body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 260px;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .sidebar-section {
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .quick-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 9px 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12.5px;
+    color: var(--text);
+    cursor: pointer;
+    margin-bottom: 6px;
+    transition: all 0.15s;
+    line-height: 1.35;
+  }
+  .quick-btn:hover {
+    background: var(--orange-light);
+    border-color: #FFD5C2;
+    color: var(--orange-dark);
+  }
+  .quick-btn:last-child { margin-bottom: 0; }
+
+  .doc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 0;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .doc-item:last-child { border-bottom: none; }
+  .doc-icon {
+    width: 24px; height: 24px;
+    background: var(--surface2);
+    border-radius: var(--radius-xs);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .doc-name { font-size: 11.5px; line-height: 1.3; }
+
+  .sidebar-footer {
+    padding: 12px 16px;
+    margin-top: auto;
+    font-size: 11px;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+
+  /* CHAT AREA */
+  .chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    scroll-behavior: smooth;
+  }
+
+  .messages::-webkit-scrollbar { width: 4px; }
+  .messages::-webkit-scrollbar-track { background: transparent; }
+  .messages::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+  /* MESSAGES */
+  .msg-row {
+    display: flex;
+    gap: 12px;
+    max-width: 780px;
+    animation: fadeUp 0.25s ease-out;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg-row.user { flex-direction: row-reverse; margin-left: auto; }
+  .msg-row.ai { margin-right: auto; }
+
+  .avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500;
+    margin-top: 2px;
+  }
+  .avatar.ai-avatar {
+    background: var(--orange);
+    color: white;
+    font-size: 11px;
+    letter-spacing: -0.01em;
+  }
+  .avatar.user-avatar {
+    background: var(--user-bubble);
+    color: white;
+    font-size: 11px;
+  }
+
+  .bubble {
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    max-width: 600px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .bubble.ai {
+    background: var(--ai-bubble);
+    border: 1px solid var(--border);
+    border-radius: 4px var(--radius) var(--radius) var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--text);
+  }
+
+  .bubble.user {
+    background: var(--user-bubble);
+    color: white;
+    border-radius: var(--radius) 4px var(--radius) var(--radius);
+  }
+
+  .bubble p { margin-bottom: 8px; }
+  .bubble p:last-child { margin-bottom: 0; }
+  .bubble strong { font-weight: 600; }
+
+  .source-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--orange-dark);
+    background: var(--orange-light);
+    border: 1px solid #FFD5C2;
+    border-radius: 20px;
+    padding: 2px 8px;
+    margin-top: 8px;
+    margin-right: 4px;
+  }
+
+  .typing-indicator {
+    display: flex; gap: 4px; align-items: center; padding: 4px 0;
+  }
+  .typing-indicator span {
+    width: 6px; height: 6px;
+    background: var(--border-strong);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+  .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bounce {
+    0%,60%,100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+
+  /* INPUT AREA */
+  .input-area {
+    padding: 16px 32px 20px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .input-wrap {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 10px 10px 10px 16px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.15s;
+  }
+  .input-wrap:focus-within {
+    border-color: var(--orange);
+  }
+
+  #userInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: transparent;
+    resize: none;
+    max-height: 120px;
+    min-height: 22px;
+    line-height: 1.5;
+  }
+  #userInput::placeholder { color: var(--text-light); }
+
+  .send-btn {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: var(--orange);
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .send-btn:hover { background: var(--orange-dark); }
+  .send-btn:active { transform: scale(0.95); }
+  .send-btn svg { width: 16px; height: 16px; fill: white; }
+  .send-btn:disabled { background: var(--border-strong); cursor: not-allowed; }
+
+  .input-hint {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  /* WELCOME STATE */
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+    padding: 40px 32px;
+    gap: 12px;
+  }
+  .welcome-icon {
+    width: 56px; height: 56px;
+    background: var(--orange-light);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 4px;
+  }
+  .welcome h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .welcome p {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 380px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="8" width="3" height="12" rx="1.5"/>
+      <rect x="7" y="4" width="3" height="16" rx="1.5"/>
+      <rect x="12" y="6" width="3" height="14" rx="1.5"/>
+      <rect x="17" y="2" width="3" height="18" rx="1.5"/>
+    </svg>
+  </div>
+  <div class="header-titles">
+    <h1>AI Sales Assistant</h1>
+    <p><span class="status-dot"></span>AI-powered · Internal Knowledge Base</p>
+  </div>
+  <div class="header-badge">Sales Tool</div>
+  <button onclick="showApiModal()" title="API Key settings" style="background:none;border:1px solid var(--border);border-radius:8px;padding:6px 10px;cursor:pointer;font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:5px;flex-shrink:0;">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+    API Key
+  </button>
+</header>
+
+<!-- API KEY MODAL -->
+<div id="api-modal" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.45);align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:16px;padding:32px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+      <div style="width:40px;height:40px;background:#FFF0EB;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF5A1E"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+      </div>
+      <div>
+        <div style="font-weight:600;font-size:16px;color:#1A1714;">Anthropic API Key</div>
+        <div style="font-size:12px;color:#7A766E;margin-top:2px;">Required to use the AI Sales Assistant</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:#7A766E;margin-bottom:16px;line-height:1.6;">Enter your Anthropic API key. It is stored only in your browser session and never sent anywhere except directly to Anthropic's API.</p>
+    <input id="apiKeyInput" type="password" placeholder="sk-ant-api03-..." style="width:100%;padding:10px 14px;border:1.5px solid #E5E0D8;border-radius:10px;font-size:14px;font-family:monospace;outline:none;box-sizing:border-box;margin-bottom:8px;" onkeydown="if(event.key==='Enter')saveApiKey()">
+    <div id="api-error" style="font-size:12px;color:#E24B4A;min-height:18px;margin-bottom:12px;"></div>
+    <div style="display:flex;gap:10px;">
+      <button onclick="saveApiKey()" style="flex:1;background:#FF5A1E;color:white;border:none;border-radius:10px;padding:11px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;">Connect</button>
+      <button onclick="hideApiModal()" style="background:none;border:1.5px solid #E5E0D8;border-radius:10px;padding:11px 16px;font-size:14px;cursor:pointer;color:#7A766E;font-family:inherit;">Cancel</button>
+    </div>
+    <p style="font-size:11px;color:#B0AAA0;margin-top:14px;line-height:1.5;">Get your API key at <a href="https://console.anthropic.com" target="_blank" style="color:#FF5A1E;">console.anthropic.com</a>. The key is only saved for this session.</p>
+  </div>
+</div>
+
+<div class="app-body">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Quick Questions</div>
+      <button class="quick-btn" onclick="askQuestion('What platform configurations does Interprefy offer?')">Platform configurations</button>
+      <button class="quick-btn" onclick="askQuestion('What are the key benefits of Interprefy vs competitors?')">Key differentiators</button>
+      <button class="quick-btn" onclick="askQuestion('How does AI Speech Translation (AIST) work?')">AI Speech Translation</button>
+      <button class="quick-btn" onclick="askQuestion('What are the security features of the platform?')">Security & compliance</button>
+      <button class="quick-btn" onclick="askQuestion('What event types and setups does Interprefy support?')">Supported event types</button>
+      <button class="quick-btn" onclick="askQuestion('What are the bandwidth requirements for Interprefy?')">Bandwidth requirements</button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Knowledge Base</div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">What is Interprefy?</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">Platform Description</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">Connect vs Connect Pro</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">What is Interprefy Select?</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">How Secure is Interprefy?</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">Compatible Browsers</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">Interprefy Glossary</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">Media Services</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">AI vs Human Interpreters</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">Virtual Platform Integrations</div></div>
+      <div class="doc-item"><div class="doc-icon">📄</div><div class="doc-name">Interpreter Setup Guide</div></div>
+    </div>
+
+    <div class="sidebar-footer">
+      Answers are based only on uploaded internal documents. Always verify before client delivery.
+    </div>
+  </aside>
+
+  <!-- CHAT -->
+  <main class="chat-area">
+    <div class="messages" id="messages">
+      <div class="welcome" id="welcome">
+        <div class="welcome-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="#FF5A1E"/>
+          </svg>
+        </div>
+        <h2>Ask me anything about Interprefy</h2>
+        <p>I'm trained on Interprefy's internal documents. Use me to quickly find answers, prepare for client calls, or respond to RFPs.</p>
+      </div>
+    </div>
+
+    <div class="input-area">
+      <div class="input-wrap">
+        <textarea id="userInput" placeholder="Ask about features, pricing, configurations, security..." rows="1"
+          onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <button class="send-btn" onclick="sendMessage()" id="sendBtn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+      <div class="input-hint">Press Enter to send · Shift+Enter for new line</div>
+    </div>
+  </main>
+</div>
+
+<script>
+// NOTE: The system prompt lives in chat.js (Cloudflare Function) alongside the
+// knowledge base. Do not define it here — it would be ignored by the backend.
+
+let conversationHistory = [];
+let isLoading = false;
+// API key is managed server-side via Cloudflare env var (ANTHROPIC_API_KEY).
+// The modal stubs below are kept so the header button doesn't throw.
+function showApiModal() {}
+function hideApiModal() {}
+function saveApiKey() {}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function askQuestion(q) {
+  document.getElementById('userInput').value = q;
+  sendMessage();
+}
+
+function addMessage(role, content) {
+  const welcome = document.getElementById('welcome');
+  if (welcome) welcome.remove();
+
+  const messages = document.getElementById('messages');
+  const row = document.createElement('div');
+  row.className = `msg-row ${role}`;
+
+  const avatar = document.createElement('div');
+  avatar.className = `avatar ${role === 'ai' ? 'ai-avatar' : 'user-avatar'}`;
+  avatar.textContent = role === 'ai' ? 'AI' : 'You';
+
+  const bubble = document.createElement('div');
+  bubble.className = `bubble ${role}`;
+
+  if (role === 'ai') {
+    bubble.innerHTML = formatMessage(content);
+  } else {
+    bubble.textContent = content;
+  }
+
+  row.appendChild(avatar);
+  row.appendChild(bubble);
+  messages.appendChild(row);
+  messages.scrollTop = messages.scrollHeight;
+  return row;
+}
+
+function formatMessage(text) {
+  // Extract source tags before processing
+  let sources = [];
+  text = text.replace(/\[Source:\s*([^\]]+)\]/gi, (match, src) => {
+    sources.push(src.trim());
+    return '';
+  });
+
+  // Bold
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Paragraphs
+  let paragraphs = text.trim().split(/\n\n+/);
+  let html = paragraphs.map(p => {
+    let lines = p.split('\n');
+    if (lines.length > 1 && lines.some(l => l.match(/^[-•]\s/))) {
+      let items = lines.filter(l => l.trim()).map(l => `<li>${l.replace(/^[-•]\s*/, '')}</li>`).join('');
+      return `<ul style="padding-left:16px;margin:4px 0;">${items}</ul>`;
+    }
+    return `<p>${lines.join('<br>')}</p>`;
+  }).join('');
+
+  if (sources.length > 0) {
+    html += '<div style="margin-top:10px;">';
+    sources.forEach(s => {
+      html += `<span class="source-tag">📄 ${s}</span>`;
+    });
+    html += '</div>';
+  }
+  return html;
+}
+
+function addTyping() {
+  const messages = document.getElementById('messages');
+  const row = document.createElement('div');
+  row.className = 'msg-row ai';
+  row.id = 'typing-row';
+
+  const avatar = document.createElement('div');
+  avatar.className = 'avatar ai-avatar';
+  avatar.textContent = 'AI';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble ai';
+  bubble.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+
+  row.appendChild(avatar);
+  row.appendChild(bubble);
+  messages.appendChild(row);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-row');
+  if (t) t.remove();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('userInput');
+  const text = input.value.trim();
+  if (!text || isLoading) return;
+
+  isLoading = true;
+  document.getElementById('sendBtn').disabled = true;
+  input.value = '';
+  input.style.height = 'auto';
+
+  addMessage('user', text);
+  // BUG 3 (part 1): user message pushed before API call — correct ✅
+  conversationHistory.push({ role: 'user', content: text });
+  addTyping();
+
+  try {
+    const response = await fetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        // BUG 7 FIX: use correct model name
+        model: 'claude-sonnet-4-5',
+        max_tokens: 1000,
+        // BUG 1 FIX: system prompt is owned by the backend — do not send it from here
+        messages: conversationHistory
+      })
+    });
+
+    const data = await response.json();
+    removeTyping();
+
+    // BUG 4 FIX: never show raw JSON — always show a clean error string
+    let reply;
+    if (data?.content?.[0]?.text) {
+      reply = data.content[0].text;
+    } else if (data?.error?.message) {
+      reply = `⚠️ API error: ${data.error.message}`;
+    } else {
+      reply = '⚠️ Unexpected response from the server. Please try again.';
+    }
+
+    addMessage('ai', reply);
+
+    // BUG 3 FIX: push the assistant reply so Anthropic gets alternating turns.
+    // Without this, a second user message causes a 400 "two consecutive user turns" error.
+    if (data?.content?.[0]?.text) {
+      conversationHistory.push({ role: 'assistant', content: reply });
+    }
+
+  } catch (err) {
+    removeTyping();
+    console.error('sendMessage error:', err);
+    addMessage('ai', '⚠️ Connection error. Please check your network and try again.');
+  }
+
+  isLoading = false;
+  document.getElementById('sendBtn').disabled = false;
+  input.focus();
+}
+</script>
+</body>
+</html>
