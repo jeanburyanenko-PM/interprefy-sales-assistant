@@ -660,9 +660,10 @@ async function sendMessage() {
     const data = await response.json();
     removeTyping();
 
-    const reply = data.content && data.content[0] ? data.content[0].text : 'Sorry, I could not process that request.';
-    conversationHistory.push({ role: 'assistant', content: reply });
-    addMessage('ai', reply);
+ const reply =
+  data?.content?.[0]?.text ||
+  data?.error?.message ||
+  JSON.stringify(data);
 
   } catch (err) {
     removeTyping();
