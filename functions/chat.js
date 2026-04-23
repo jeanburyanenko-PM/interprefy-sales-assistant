@@ -53,8 +53,7 @@ You MUST ONLY use the knowledge base below.
 KNOWLEDGE BASE:
 ${knowledge}
         `,
-
-        messages: body.messages
+        messages: formattedMessages
       })
     });
 
