@@ -30,7 +30,7 @@ export async function onRequestPost(context) {
     const body = await context.request.json();
 
     // ✅ SIEMPRE FUERA del JSON
-const knowledge = "Interprefy integrates with Zoom.";
+const knowledge = await loadKnowledge();
     console.log("KNOWLEDGE:", knowledge);
     
     const response = await fetch("https://api.anthropic.com/v1/messages", {
