@@ -660,9 +660,6 @@ async function sendMessage() {
     const data = await response.json();
     removeTyping();
 
-const data = await response.json();
-removeTyping();
-
 const reply =
   data?.content?.[0]?.text ||
   data?.error?.message ||
