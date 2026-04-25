@@ -1,0 +1,40 @@
+The Interprefy Agent is an automated service designed to provide real-time translated captions and audio for MS Teams, Zoom, Google Meet and Webex. It eliminates the need for "virtual cables" or complex manual setups, making multilingual support more accessible for both hosts and attendees.
+
+Core Functionality
+How it Works: The Agent joins a meeting as a participant, captures the floor audio, and streams it to the Interprefy platform for professional translation.
+
+Automation: It automatically enables Interprefy captions when it joins and stops them when the meeting ends.
+
+Visual Presence: It appears in the participant list as "Interprefy Agent (Unverified)". Its profile picture is a QR code that attendees can scan to access audio translations.
+
+Interaction: Shortly after joining, the Agent sends two automated chat messages providing instructions and a direct link to the translation portal.
+
+Setup & Host Experience
+Invitation Method: Hosts invite a unique, pre-assigned email address to their application calendar invite just like a regular attendee.
+
+Lead Time: It is recommended to schedule meetings at least 10 minutes in advance to ensure the Agent joins successfully.
+
+Ad-hoc Meetings: To use the Agent for an unplanned meeting, the host must first create a calendar event, invite the Agent, and then start the call.
+
+Language Control: The languages available are determined by the specific Event ID linked to the Agent's email. Auto-language switching is supported.
+
+Attendee Experience & Volume Management
+Audio Access: Attendees listen to translations via a browser link or the Interprefy app (accessed via the Agent's QR code or chat link).
+
+Volume Balancing: * Windows: Users can use the Volume Mixer to lower Teams' volume while keeping the translation volume high.
+
+macOS/Mobile: Since these systems handle volume globally, it is recommended that users listen to the translation on a separate mobile device to avoid audio overlap.
+
+Technical & Security Specs
+Privacy: The Agent does not record audio unless specifically requested and configured during the sales process.
+
+Limitations: Currently, it does not support Teams Webinars (with registration), Live Events, Town Halls, or Breakout Rooms.
+
+Setup Requirements: Admins must raise a service desk ticket (allowing 2 working days) to map a Host's email to an Agent email and a specific Event ID.
+
+Troubleshooting Tips
+Forgot to add Agent? Update the meeting start time to +10 minutes from the current time and add the Agent's email; it will join based on the new time.
+
+Agent kicked out? Shift the meeting time forward by 5 minutes in the calendar to trigger a "re-join."
+
+Adding languages: You can update languages in the EMI backend during a live meeting, though captions must be restarted to reflect the change.
