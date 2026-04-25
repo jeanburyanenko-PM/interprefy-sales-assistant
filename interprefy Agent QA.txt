@@ -1,0 +1,212 @@
+Interprefy Agent for Microsoft Teams: Q&A
+
+General Information & Core Functionality
+
+Q1: What is the core purpose of Interprefy Agent for Microsoft Teams?
+Interprefy Agent’s purpose is to provide high quality live translated captions and
+audio for your customers using Microsoft Teams.
+
+Q2: Why are we introducing Interprefy Agent?
+The goal is to simplify the process for meeting hosts and attendees by removing
+the need for virtual cable. Making real-time language support effortless without
+needing complex setups.
+
+Q3: What exactly does the Interprefy Agent do within a Teams meeting?
+Interprefy Agent acts as an intelligent agent within a Teams meeting. Its primary
+function is to capture the meeting's original audio and securely stream it to the
+Interprefy Platform. From there, all the advanced real-time language translation
+and captioning happen on our robust Interprefy backend, delivering translated
+content to the audience.
+
+Q4: Do customers still need to use virtual cable for Team meetings?
+No, Interprefy Agent completely replaces the need for "Virtual Cable" for audio.
+Q5: Does the host still need to enable captions if they use Interprefy Agent?
+No, as soon as the Interprefy Agent service joins the Teams meeting, Interprefy
+captions are turned on automatically (and turned off when everyone has left the
+meeting).
+
+Interprefy Agent Security
+
+Q6: Will Interprefy Agent record my meeting?
+No, recording of any audio will not happen unless requested as part of the sales
+process and enabled by OCD.
+
+Interprefy Agent Host Experience
+Q7: How does a host enable Interprefy Agent in a meeting?
+The meeting host simply needs to invite this email address to their meeting
+Microsoft Teams meeting, just like inviting another person. We recommend
+scheduling a meeting with at least 10 minutes notice to give time for the Agent
+service to join. It may be possible to use the service with shorter notice, but
+availability may be limited.
+
+Q7a: How does the Interprefy Agent work?
+The host will be allocated an email address for their meetings. Emails are
+allocated at an event ID/Token level, so can be used whenever needed for
+sessions which use that event ID/Token – so long as the meetings don’t overlap in
+any way. It is the Event ID/Token that determines which languages will be shown
+by the Agent in the Teams meeting.
+
+Q8: What happens when the meeting starts?
+The Interprefy Agent service will join automatically at the scheduled start time
+and be ready to start when the meeting starts (it joins 1 minute before the
+meeting start time in the calendar). When all participants have left the meeting,
+Interprefy Agent will leave, and captions will stop automatically (this allows
+meetings to overrun beyond their scheduled end time).
+
+Q9: Can Interprefy Agent send messages in the Teams meeting chat?
+Yes, Interprefy Agent can be helpful too! The service will send two (configurable)
+messages shortly after connecting:
+• Message 1 - This is the Interprefy Agent service, streaming the audio from
+this meeting to the Interprefy Platform for translation.
+• Message 2 - To access real-time translation, scan my profile's QR code with
+your mobile device or click here: (audience link, the link can be opened on
+desktop, or on a mobile device the user will have a choice of mobile web or
+Interprefy app. This functionality is governed by the Event set up in EMI, and
+mobile landing page must be ticked for the event).
+
+Q10: Can audience members chat to the Interprefy Agent service?
+Interprefy Agentis only there to listen, start captions, and share the audience link.
+
+Q11: Is language switching available when using Interprefy Agent?
+Yes, you can use Interprefy Agent for multiple floor languages. Auto language
+switching will work, and manual language switching can be done via the Host
+interface.
+
+Q12: Can Interprefy Agent be used for ad-hoc Teams meetings?
+Interprefy Agent is currently designed to support pre-scheduled meetings
+(meetings booked via the Host’s calendar). If the customer would like to hold an
+ad-hoc meeting, they just need to schedule it via their calendar first, invite their
+Agent email address, then they can add other people once the meeting has
+started.
+
+Q13: What happens if there are issues like the service failing to join or stream
+audio?
+The system includes mechanisms for error handling and notifications for such
+failures. Comprehensive logging and monitoring will also be in place for
+debugging and performance. If you encounter any issues, please raise a Service
+Desk ticket.
+
+Q14: What does Interprefy Agent look like in a meeting?
+Interprefy Agent uses advanced automation and intelligent agent technology to
+attend meetings, the Agent profile image will be a QR code which can be scanned
+via a mobile device camera to access translation. The service will be called
+“Interprefy Agent (Unverified)”, it is classed as Unverified as that is the standard
+for all non-human accounts.
+
+Q15: What sort of Teams meetings are NOT supported?
+Non-standard Teams meetings are currently unsupported. This includes:
+• Webinars (where registration is required), Teams Live Events, Town Hall
+Events, Teams breakout rooms
+
+Q16: How does an attendee manage the Teams volume if listening to translation
+via a browser link?
+Windows users can reduce their Teams audio volume by opening the Volume
+mixer on Windows and reducing the volume of the Teams application. The
+Volume mixer can be accessed by right clicking on the Speaker icon in Windows
+(lower right-hand side near the date and time), or by typing “mixer” in the
+Windows search bar and opening Sound mixer options.
+For macOS users, the volume set in Teams affects all apps and browser volume
+will also be affected for the audience link. To listen to translation if using a Mac we
+recommend attendees use their mobile device as a speaker. (Teams volume will
+need to be turned back up after the Teams meeting ends).
+
+Q17. What do I do if an organiser forgot to add their Agent to a meeting?
+If a client has forgotten to add their Agent, they can either create a new meeting
+invite and add the Agent or change the start time of the existing meeting (to at
+least +10 minutes) and add the Agent. The agent will get the invite to the meeting
+via the new start time in the calendar, existing participants will be able to remain
+in the original meeting, and the Agent will join at the new start time.
+If an Agent is removed from a meeting, and the Host wants to re-add it, this can
+be done by changing the meeting start time to +5 minutes from the current time,
+the Agent will rejoin based on the new start time of the meeting.
+
+Q18: Can I add the Agent via the participants list in a live meeting?
+This can’t be done as the Agent doesn’t exist as a “person” to look up in the list of
+possible attendees, and an email address cannot be pasted in.
+
+Q19: Can I attend a meeting on my mobile and listen to translation at the same
+time?
+This is not recommended as managing the volume of Teams on a mobile and
+listening to audio from another app is challenging, the simplest solution is to open
+Interprefy captions via browser or the Interprefy mobile app and to read the
+translation.
+Project Managers / Remote Support
+How do I request an Interprefy Agent email address for an Event?
+To request a new Interprefy Agent email address for an Event, please raise a
+service desk ticket, please allow 2 working days for set up. Please make sure you
+share the Event ID from EMI and the authorised user’s email address.
+The event must already exist on EMI with the required languages for the host's
+Agent to work. The Event must be a Connect Pro Event. If you don’t already have
+an event/token created, you will need to create one first before submitting the SD
+ticket.
+
+Note that this process need only be carried out once: once the host has their
+Agent email address, they use that for all their subsequent meetings.
+If the host needs to have different kinds of meetings with different sets of
+languages, they'll need one Agent email address for each kind of meeting, and so
+one event will need to be created per kind of meeting.
+In our systems 3 pieces of data are connected to make the Agent work.
+
+1) The Host email: This is how we authorise the use of an Agent email, the
+Host email is the only one that can invite their specific Agent to a meeting.
+2) The Agent email: This is systemically generated, and is aligned to the Host
+email, so we know which host can use which Agent email.
+3) The Event ID: We align the Event ID from EMI to the Agent email. This is how
+we know which language combination to show in each of the meetings the
+Agent attends. The languages (and other services) are governed by the EMI
+
+Event set up for that event/token.
+Do I need to do anything to activate the new service?
+Once you have the email address for that Event ID/Token you are good to go once
+shared with the meeting Host. Please remember to select “Interprefy Agent” as the
+audio source method in ISP.
+
+A customer has mislaid their email address, where do I find it?
+We store the email addresses and Event IDs in a secure table, if you need to check
+an associated email address, please send an SD ticket with the user's email
+address.
+Can I add new languages to an Event during an event?
+
+Yes, if a Teams meeting has started, and you want to add (or remove) a
+language, you can do that in EMI, and then you must restart captions. Interprefy
+Agent will continue working in the meeting and show the new language
+combination once restart is complete.
+What happens if a Token is restarted?
+
+Restarting a Token will cause the translation to stop via the Interprefy Agent, in
+this case the Agent will need to be rescheduled via a new meeting invite.
+Can I use ARP with Agent?
+
+We have tested using ARP with Agent and it works well if someone wants to use it
+to send audio to different devices. We also testing sending some audio into the
+ARP directly and that stopped captions so they must be restarted. The two can be
+used at the same time but need to be careful if sending audio directly into ARP
+rather than via Teams/Zoom etc.
+
+Sales
+
+Can I use Interprefy Agent in a customer Teams demo?
+
+Yes absolutely, please remember to request an Interprefy Agent email address for
+your demo event (if you don’t have one already) by raising an SD ticket and
+supplying the Event ID.
+When should I sell the Interprefy Agent solution?
+Currently Interprefy Agentis available only for Microsoft Teams (We hope to make
+it available for other platforms in future).
+
+Interprefy Agent is usually used for meetings rather than events. The difference
+between a meeting and an event depends on the degree of organisation. Events
+are more organised, often by dedicated staff. In general, if it takes more time in
+hours worked to organise than to run, it is an event.
+
+• Interprefy Agent is normally used by clients that do not want Interprefy
+support. Though we can provide support if it is required. This should be
+priced into the contract
+• Interprefy Agentis limited to 10 languages if using auto language switching,
+and 25 languages if using manual language switching.
+• Interprefy Agent can use automatic language switching. It can also use
+manual language switching. The client will need to be prepared to do the
+language switching themselves
+
+If you think that you have an opportunity for Interprefy Agent for a MS Teams
+based event and would like some support, please talk to Jonathan.
