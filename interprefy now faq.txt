@@ -1,0 +1,183 @@
+Interprefy Now FAQ
+
+Interprefy Now allows ordinary team members to run multilingual in-person meetings without any audiovisual equipment, just mobile phones. Find here the answers to the most common questions about Interprefy Now.
+What is Interprefy Now and why you need it
+What is Interprefy Now?
+Interprefy Now enables multilingual meetings of up to 100 people. It uses the ordinary smartphones that everybody carries with them to provide instant interpretation using AI technology. Interprefy Now delivers both spoken audio and readable caption translation of what the current speaker is saying. It is designed for easy operation in face-to-face meetings and equally simple usage in online scenarios too. Interprefy Now is a peer-to-peer meeting solution where each participant can listen and speak.
+
+Why do I need Interprefy Now?
+If you've ever needed to communicate with people who speak a different language, then Interprefy Now is for you. For professional, in-person and online scenarios it is the quickest, simplest, and most impactful solution.  
+
+Interprefy Now provides multilingual simultaneous interpretation in the following scenarios: 
+
+Face-to-face meetings 
+In simple online discussions as a sound-only multilingual tool 
+To augment meeting and event platforms bypassing their audio and replacing that with multilingual AI-translated sound 
+What equipment is needed for Interprefy Now
+Do I need special equipment?
+No, all you need to make your in-person and online meetings multilingual with Interprefy Now is a mobile phone for each attendee. Usually, their own smartphone that they would be carrying with them anyway. 
+
+Please note that you also need a solid internet connection (see the “Environment” section) 
+
+Can I listen simply with my phone against my ear?
+Yes. The earpiece is what you listen to when you put the phone against your ear, and this is what the app will use by default – if you do not have headphones plugged in. You can hold your phone to your ear just like you would in a telephone conversation.
+
+Can I listen on my earbuds, headphones or AirPods
+Yes. Interprefy Now will work with earbuds, headphones, or AirPods. Be aware that while earbuds, headphones, or AirPods can be a great tool for participating in Interprefy Now conversations, the microphones they come with may not always offer the best quality even on the best branded and most expensive units. A poor microphone will negatively impact translation accuracy. 
+
+Please note that if you want to use Bluetooth earbuds or headphones, you will need to allow permission for these to be used when asked.
+
+Can I listen on my phone’s loudspeaker?
+No. To prevent acoustic feedback, that high-pitched painful whistle that PA (public address) systems sometimes make, the loudspeaker on your phone is disabled.
+
+Will Interprefy Now run my phone batteries down quickly?
+No. Interprefy Now like any app will use power. It is a sound-based app though and not a video app so power drain is significantly less than you will be used to from watching videos or attending video conferences using your phone.
+
+What are the connection requirements of Interprefy Now
+What bandwidth does Interprefy Now use?
+The table below gives an indication of the bandwidth needed by Interprefy Now.  
+
+Number of users 
+
+Required bandwidth (Mbps) 
+
+0-10 
+
+0.7 Mbps 
+
+10-20 
+
+1.4 Mbps 
+
+20-30 
+
+2.1 Mbps 
+
+30-40 
+
+2.8 Mbps 
+
+40-50 
+
+3.4 Mbps 
+
+50-60 
+
+4.2 Mbps 
+
+60-70 
+
+4.9 Mbps 
+
+70-80 
+
+5.6 Mbps 
+
+80-90 
+
+6.3 Mbps 
+
+90-100 
+
+7 Mbps 
+
+ 
+
+These numbers are low compared to many conferencing and communication apps. In part this is because Interprefy Now does not use video. Please note though that other apps and the operating system on your phone may additionally use a lot more data than this table indicates, for non-Interprefy Now tasks. For example, social media apps uploading the latest messages, storage apps sending or receiving the latest versions of files, email apps downloading mail and so on.  
+
+When phones have been starved of a data connection, they can use particularly large amounts of data for a short while they synchronize. The other factor that can come into play is where users operate other apps in the background during an Interprefy Now session. Watching videos can be particularly data hungry. For this reason, it is advisable to plan in significant additional bandwidth to any Wi-Fi system or phone data connection intended for Interprefy Now.  
+
+For Interprefy Now, network stability and avoiding congestion are generally more critical than total bandwidth. To improve performance when many users are in the same location, it's better to distribute the load across multiple Wi-Fi access points or networks, even if each has slightly lower bandwidth. This helps reduce interference and ensures a smoother experience for everyone.
+
+Is it better to use a mobile internet connection or Wi-Fi?
+
+In practice, the best connection is the one that is most reliable in your locality. Sometimes that will be Wi-Fi and sometimes it will be the mobile connection. Where Interprefy Now is being used around a large building, it may even vary between different parts of the structure. Because users are likely to be on different mobile networks, the answer can vary by user.  
+
+If you are unsure which is likely to be better, then the default answer is to use Wi-Fi wherever possible so long as you know that the local Wi-Fi has a good general performance. 
+
+How does Interprefy Now work for users
+Does Interprefy Now have captions?
+Yes, and they are displayed by default. Interprefy Now will always provide captions in the language you require.
+
+Can I scroll back through the captions on Interprefy Now?
+Yes. You can go back through and remind yourself of what somebody said.
+
+What happens when two people speak at the same time?
+Interprefy Now will not let two microphones go live at the same time. Only one person at a time can capture the microphone and speak to the rest of the participants. You need to follow good meeting protocol and take turns. Interprefy Now helps enforce good working practices because it is essential for great translation.
+
+Is Interprefy Now a separate app to the Interprefy Mobile App?
+No. Interprefy Now runs as part of the same Interprefy app that you can use to provide interpretation and captions as an audience member at conferences, presentations and events of all kinds. That way we save you space on your mobile.
+
+However, the two forms of operation are completely separate. Settings in one mode for example are not applied to the other.
+
+Does everyone need to run the app?
+Yes. Interprefy Now requires each user to run the app. Every participant then selects their preferred language which they use for both listening and speaking. Since every person uses their own device with their own personalized settings, the language experience is tailored to their needs.
+
+Do I have to select my preferred language each time I use Interprefy Now?
+No. Once you have told Interprefy Now what language you prefer, it remembers.
+
+Can I use Interprefy Now on my PC or laptop?
+No. Interprefy Now is a mobile app only.
+
+Can I use Interprefy Now with the rest of the Interprefy Platform’s different user interfaces?
+No. 
+
+Does every user have to be in the same physical space?
+No. Interprefy Now works as both a face-to-face interpretation (translation) solution and also as a voice-only, light weight, remote meeting platform for multilingual gatherings. 
+
+Interprefy Now is ideal for translating face-to-face interaction such as multilingual meetings, training, coaching, and demonstrations. In these applications it brings the benefit of not needing any installed conference technology such as microphones, headsets and so on. This means that it can be used anywhere and everywhere including outside and on the move. 
+
+For remote meetings, Interprefy Now can be used instantly and from anywhere. It has the lowest inertia and allows spontaneous discussions to take place between people who are either remote or local to each other. 
+
+Do event organizers need to set up languages in advance?
+No, event organizers no longer need to predefine languages. Every available language is automatically accessible, making event setup faster and more flexible.
+
+What happens if I switch the language halfway through my sentence?
+Interprefy Now expects you to stay with the language that you have set as your preference. Stick with your chosen language during the whole session.
+
+What happens if I join an event late?
+Late joiners can immediately select their language upon joining—no restrictions or prior setup needed.
+
+Is my preferred language saved for future sessions?
+Yes! The system remembers your last two selected languages for quick access in future meetings.
+
+How does Interprefy Now help with accessibility
+Does Interprefy Now provide any facilities for the hard of hearing?
+Yes, Interprefy Now always displays captions in your preferred caption language. Another facility Interprefy Now offers is that it repeats the original speaker’s voice. This can help those who are finding the speaker’s voice too quiet, or the room too noisy, to hear the original speech. Of course, the translated audio does the same for when the listener also requires translation.
+
+Does Interprefy Now provide captions in the original language?
+Yes. For the benefit of anyone that is hard of hearing, as well as anyone that is struggling to hear for any reason, Interprefy Now always delivers captions including in the original language.
+
+Are there recordings and transcriptions
+Does Interprefy Now record our conversation?
+No, not yet. That could be a future feature if the market wants it but for now, no recording is available.
+
+Does Interprefy Now provide transcriptions?
+Yes. Interprefy Now makes local transcripts for each Host user (i.e. not Guests). The transcriptions are made using the language selected by that user, and so multiple different languages can be supported providing that someone is using each language. Note that transcripts record from the point where the user joins, until the point where they leave.
+
+Hosts can download the transcript as they leave the session, or they can download the transcript of the last session from Virtual Rooms wallet.
+
+What are the applications of Interprefy Now?
+Can I use Interprefy Now for roundtable meetings?
+Yes. Interprefy Now is a great tool for making roundtable discussions multilingual.
+
+Can I use Interprefy Now for negotiations?
+Yes. In fact, because the live translation is more of a verbatim account and less of a summary like human interpretation can be, Interprefy Now makes for a good tool in this scenario.
+
+Can I use Interprefy Now for making a sales pitch?
+Yes. Because Interprefy Now allows everyone to still look each other in the eye and read body language it makes for a very comfortable sales tool building trust between partners.
+
+Can I use Interprefy Now for practical training?
+Yes. Interprefy Now makes a great tool when people need to be able to do practical things in a close situation like where a process is being demonstrated. It helps if participants wear headphones or earbuds. Open-back headphones are most suitable.
+
+Can I use Interprefy Now for guided tours?
+Yes. Interprefy Now makes an excellent tool for tour guides that must deal with groups of people who speak several different languages. Not only can you be understood by your party, but they can ask you questions too.
+
+Can I use Interprefy Now to talk to my team?
+Yes, of course. Interprefy Now allows you to communicate with an international team face-to-face and remotely with everyone using their preferred language.
+
+Can I use Interprefy Now remotely?
+Yes. Interprefy Now can be used by people that are either in the same physical space or that are talking together remotely.
+
+Can I use Interprefy Now alongside meeting or event platforms? 
+Yes. If you are conferencing with other people on a meeting platform such as Microsoft Teams, or an event platform, then you can use Interprefy Now to handle the sound. The way to do this is to establish connection on the meeting/event platform using your computer or tablet. This will be used for video, chat, and other general facilities. Turn the sound volume down on that device. Next establish a connection on Interprefy Now using your phone. Carry on using your laptop/tablet for video and other facilities but using your phone for carrying and translating the audio. 

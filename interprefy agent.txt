@@ -1,0 +1,107 @@
+# Interprefy Agent
+
+## Definition
+Interprefy Agent is an AI-powered bot that provides real-time speech translation (captions and audio) directly inside video conferencing platforms.
+
+It works with:
+- Microsoft Teams
+- Zoom
+- Google Meet
+- Webex
+
+It eliminates the need for virtual cables or manual setup.
+
+IMPORTANT:
+- The Agent does NOT require installation
+- The Agent is NOT a desktop application
+- The Agent works as a participant inside the meeting
+
+---
+
+## How It Works
+- The Agent joins the meeting as a participant
+- It captures the floor audio
+- Audio is streamed to the Interprefy platform for translation
+- Translated captions and audio are delivered in real time
+
+Automation:
+- Captions start automatically when the Agent joins
+- Captions stop automatically when the meeting ends
+
+---
+
+## User Experience
+
+### Host Setup
+- The host invites the Agent via a unique email address
+- It is added like a normal meeting participant
+
+Requirements:
+- Schedule meetings at least 10 minutes in advance
+- For ad-hoc meetings, create a calendar event first and invite the Agent
+
+Language Control:
+- Languages are linked to the Event ID
+- Auto-language switching is supported
+
+---
+
+### Attendee Experience
+- Access translations via:
+  - Browser link
+  - Interprefy app (via QR code or chat link)
+
+- The Agent appears as:
+  "Interprefy Agent (Unverified)"
+
+- It sends:
+  - Instructions
+  - Direct link to translation portal
+
+---
+
+## Audio & Volume Handling
+
+Windows:
+- Users can adjust volume using Volume Mixer
+
+macOS / Mobile:
+- Volume is global
+- Recommended to use a second device for translation audio
+
+---
+
+## Technical & Security
+
+Privacy:
+- The Agent does NOT record audio unless explicitly configured
+
+Limitations:
+- Not supported:
+  - Teams Webinars (with registration)
+  - Live Events
+  - Town Halls
+  - Breakout Rooms
+
+Setup Requirements:
+- Admin must create a service desk ticket
+- Requires up to 2 working days
+- Maps:
+  - Host email
+  - Agent email
+  - Event ID
+
+---
+
+## Troubleshooting
+
+Agent not added:
+- Update meeting start time to +10 minutes
+- Add Agent email
+
+Agent removed:
+- Move meeting time forward by 5 minutes to trigger rejoin
+
+Adding languages:
+- Can be updated during the meeting
+- Captions must be restarted to apply changes
