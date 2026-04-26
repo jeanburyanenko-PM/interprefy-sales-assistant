@@ -1,21 +1,84 @@
-Sales
+# Interprefy Agent — Sales Guidelines
 
-Can I use Interprefy Agent in a customer Teams demo?
+## Definition
+Interprefy Agent is a self-service AI translation solution designed for online meetings.
 
-Yes absolutely, please remember to request an Interprefy Agent email address for
-your demo event (if you don’t have one already) by raising an SD ticket and
-supplying the Event ID.
+It is best suited for customers who need flexibility, autonomy, and cost efficiency.
 
-When should I sell the Interprefy Agent solution?
--When the customer needs autonomy, flexibility and/or has a smaller budget that may not match Inject due to remote support costs.
+---
 
-Interprefy Agent is designed for online meetings rather than events, however, if the customer has budget constraints, the Agent could be also used for hybrid sessions instead of Inject (if the customer is ok with the Agent delivery via QR code and URL link).  One Agent email will be needed per room (if several simultaneous sessions).
+## When to Sell Interprefy Agent
 
-Currently Interprefy Agent is available only for MS Teams, Zoom, Google meet and Webex.
+Sell Interprefy Agent when:
+- The customer needs a self-service solution
+- The customer has limited budget
+- The customer does not require full Interprefy support
+- The use case is an online meeting (not a large-scale event)
 
+Alternative use:
+- Can be used for hybrid sessions if budget is limited
+- Requires acceptance of QR code / URL-based delivery
+- One Agent email is required per room/session
 
-• Interprefy Agent is normally used by clients that do not want Interprefy support. Though we can provide support if it is required. This should be priced into the quote.
-• Interprefy Agentis limited to 10 languages if using auto language switching, and 25 languages if using manual language switching.
-• Interprefy Agent can use automatic language switching. It can also use manual language switching. The client will need to be prepared to do the language switching themselves
+---
 
-rather than via Teams/Zoom etc.
+## Platform Availability
+
+Interprefy Agent works with:
+- Microsoft Teams
+- Zoom
+- Google Meet
+- Webex
+
+---
+
+## Setup for Sales / Demos
+
+- The Agent requires a dedicated email address
+- This must be requested via a Service Desk (SD) ticket
+- The Event ID must be provided when requesting the Agent email
+
+Use case:
+- Can be used in customer demos (including Teams demos)
+
+---
+
+## Support Model
+
+- Typically used without Interprefy support (self-service)
+- Optional support can be provided if required
+- If support is included, it must be priced in the quote
+
+---
+
+## Language Capabilities
+
+- Up to 10 languages with automatic language switching
+- Up to 25 languages with manual language switching
+
+Language control:
+- Automatic switching is supported
+- Manual switching is also supported
+- The client is responsible for switching languages (not via Teams/Zoom UI)
+
+---
+
+## Positioning vs Other Solutions
+
+Interprefy Agent:
+- Self-service
+- Lower cost
+- More flexible
+- Less operational support
+
+Compared to Inject:
+- Agent is better for smaller, budget-sensitive use cases
+- Inject is better for fully managed, high-touch scenarios
+
+---
+
+## IMPORTANT
+
+- Interprefy Agent is NOT designed for large-scale events
+- It is primarily designed for meetings
+- It requires client autonomy and basic technical handling
