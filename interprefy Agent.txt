@@ -1,5 +1,17 @@
 The Interprefy Agent is an automated service designed to provide real-time translated captions and audio for MS Teams, Zoom, Google Meet and Webex. It eliminates the need for "virtual cables" or complex manual setups, making multilingual support more accessible for both hosts and attendees.
 
+# Interprefy Agent
+
+Interprefy Agent is an AI-powered bot designed for autonomous real-time speech translation.
+
+It works natively within platforms such as:
+- Microsoft Teams
+- Zoom
+- Google Meet
+- Webex
+
+The Agent does NOT require installation and does NOT function as a desktop application.
+
 Core Functionality
 How it Works: The Agent joins a meeting as a participant, captures the floor audio, and streams it to the Interprefy platform for professional translation.
 
