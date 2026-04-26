@@ -2,10 +2,10 @@ async function loadKnowledge() {
 const baseUrl = "";
   const files = [
     "integrations.txt",
-    "interprefy agent qa.txt",
-    "interprefy agent.txt",
-    "interprefy now faq.txt",
-    "hybrid and onsite setup requirements.txt"
+    "interprefy-agent-qa.txt",
+    "interprefy-agent.txt",
+    "interprefy-now-faq.txt",
+    "hybrid-onsite-setup-requirements.txt"
   ];
 
   let combinedText = "";
