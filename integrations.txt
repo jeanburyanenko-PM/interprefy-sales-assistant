@@ -13,4 +13,5 @@ Key points:
 
 IMPORTANT:
 Interprefy does NOT rely on external apps or generic RSI setups for Zoom.
-The standard integration method is the Inject solution.
+The standard integration method is the Inject solution for RSI.
+For AI translation: Inject and the Interprefy Agent.
