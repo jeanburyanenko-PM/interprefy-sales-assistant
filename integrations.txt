@@ -1,5 +1,16 @@
-How does Interprefy integrate with Zoom?
+# Zoom Integration
 
-How to use the Zoom Language Interpretation feature with Interprefy "Inject"
-The "Inject" integration solution for Zoom delivers multilingual capability with one-click language access for users. 
+Interprefy integrates with Zoom using the "Inject" solution.
 
+Definition:
+The Inject solution enables multilingual interpretation inside Zoom by leveraging Zoom's Language Interpretation feature.
+
+Key points:
+- It provides one-click access to language channels for participants
+- Users can select their preferred language directly within Zoom
+- No additional applications are required
+- The experience is fully embedded in the Zoom interface
+
+IMPORTANT:
+Interprefy does NOT rely on external apps or generic RSI setups for Zoom.
+The standard integration method is the Inject solution.
