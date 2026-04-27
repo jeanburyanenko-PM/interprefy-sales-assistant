@@ -1,7 +1,6 @@
 async function loadKnowledge() {
   
-const requestUrl = new URL(context.request.url);
-const baseUrl = `${requestUrl.protocol}//${requestUrl.host}`;
+  const baseUrl = "https://interprefy-sales-assistant.pages.dev";
 
     const files = [
     "integrations.txt",
@@ -53,8 +52,8 @@ export async function onRequestPost(context) {
 
     // BUG 1 FIX: Backend owns the system prompt. Do not use body.system.
     // The frontend's system field is ignored intentionally.
-    const knowledge = await loadKnowledge();
-
+const knowledge = await loadKnowledge(context);
+    
     const systemPrompt = `
 You are an AI sales assistant for Interprefy.
 
