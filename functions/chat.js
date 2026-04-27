@@ -1,5 +1,5 @@
 async function loadKnowledge() {
-const baseUrl = "";
+const baseUrl = new URL(context.request.url).origin;
   const files = [
     "integrations.txt",
     "interprefy-agent-qa.txt",
@@ -13,7 +13,7 @@ const baseUrl = "";
 
   for (const file of files) {
     try {
-      const res = await fetch(baseUrl + file);
+    const res = await fetch(`${baseUrl}/${file}`);
 
       if (!res.ok) {
         failedFiles.push(file);
@@ -53,8 +53,8 @@ export async function onRequestPost(context) {
 
     // BUG 1 FIX: Backend owns the system prompt. Do not use body.system.
     // The frontend's system field is ignored intentionally.
-    const knowledge = await loadKnowledge();
-
+  const knowledge = await loadKnowledge(context);
+    
     const systemPrompt = `
 You are an AI sales assistant for Interprefy.
 
