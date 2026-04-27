@@ -1,7 +1,9 @@
 async function loadKnowledge() {
-  const baseUrl = "https://interprepy-sales-assistant.pages.dev/";
+  
+const requestUrl = new URL(context.request.url);
+const baseUrl = `${requestUrl.protocol}//${requestUrl.host}`;
 
-  const files = [
+    const files = [
     "integrations.txt",
     "setups.txt"
   ];
