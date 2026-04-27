@@ -1,5 +1,4 @@
-async function loadKnowledge() {
-  
+async function loadKnowledge(context) {
   const baseUrl = "https://interprefy-sales-assistant.pages.dev";
 
     const files = [
