@@ -1,35 +1,23 @@
 async function loadKnowledge(context) {
   const baseUrl = "https://interprefy-sales-assistant.pages.dev";
 
-    const files = [
+  const files = [
     "integrations.txt",
-    "setups.txt"
+    "interprefy-agent-qa.txt",
+    "interprefy-agent.txt",
+    "interprefy-now-faq.txt",
+    "hybrid-onsite-setup-requirements.txt"
   ];
 
   let combinedText = "";
-  let failedFiles = [];
 
   for (const file of files) {
-    try {
-      const res = await fetch(baseUrl + file);
+    const res = await fetch(`${baseUrl}/${file}`);
 
-      if (!res.ok) {
-        failedFiles.push(file);
-        continue;
-      }
+    if (!res.ok) continue;
 
-      const text = await res.text();
-      combinedText += `\n\n### ${file}\n${text}`;
-
-    } catch (err) {
-      console.error("Error loading knowledge file:", file, err);
-      failedFiles.push(file);
-    }
-  }
-
-  // BUG 6 FIX: Surface knowledge load failures so the model knows its context is incomplete
-  if (failedFiles.length > 0) {
-    combinedText += `\n\n### SYSTEM NOTE\nThe following knowledge files failed to load: ${failedFiles.join(", ")}. If asked about topics covered by these files, acknowledge that your knowledge base may be incomplete.`;
+    const text = await res.text();
+    combinedText += `\n\n${text}`;
   }
 
   return combinedText;
