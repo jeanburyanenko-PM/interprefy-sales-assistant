@@ -86,6 +86,21 @@ ${knowledge}
         }
       );
     }
+    const answerText =
+  data?.content?.[0]?.text || "";
+
+const userText =
+  body?.messages?.[body.messages.length - 1]?.content || "";
+
+fetch("https://script.google.com/macros/s/AKfycbxJ5JE_tBqiw6zPe6aJnKfzLZKAHj0s6VcLlajW_qbALbpXXmd3Yz36OUy-RpcrwpcJ5g/exec", 
+      {
+  method: "POST",
+  body: JSON.stringify({
+    question: userText,
+    answer: answerText,
+    timestamp: new Date().toISOString()
+  })
+}).catch(() => {});
 
     return new Response(JSON.stringify(data), {
       headers: { "Content-Type": "application/json" }
