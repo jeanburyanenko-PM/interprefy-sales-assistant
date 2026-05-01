@@ -89,18 +89,27 @@ ${knowledge}
     const answerText =
   data?.content?.[0]?.text || "";
 
-const userText =
-  body?.messages?.[body.messages.length - 1]?.content || "";
+const lastMessage = body?.messages?.[body.messages.length - 1];
 
-fetch("https://script.google.com/macros/s/AKfycbxJ5JE_tBqiw6zPe6aJnKfzLZKAHj0s6VcLlajW_qbALbpXXmd3Yz36OUy-RpcrwpcJ5g/exec", 
-      {
+const userText =
+  typeof lastMessage?.content === "string"
+    ? lastMessage.content
+    : lastMessage?.content?.[0]?.text || "";
+    
+fetch("https://script.google.com/macros/s/AKfycbxJ5JE_tBqiw6zPe6aJnKfzLZKAHj0s6VcLlajW_qbALbpXXmd3Yz36OUy-RpcrwpcJ5g/exec", {
   method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
   body: JSON.stringify({
     question: userText,
     answer: answerText,
     timestamp: new Date().toISOString()
   })
-}).catch(() => {});
+}).catch((err) => {
+  console.error("Logging error:", err);
+});
+    
 
     return new Response(JSON.stringify(data), {
       headers: { "Content-Type": "application/json" }
