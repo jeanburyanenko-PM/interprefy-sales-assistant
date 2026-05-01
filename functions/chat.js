@@ -96,7 +96,7 @@ const userText =
     ? lastMessage.content
     : lastMessage?.content?.[0]?.text || "";
     
-fetch("https://script.google.com/macros/s/AKfycbxJ5JE_tBqiw6zPe6aJnKfzLZKAHj0s6VcLlajW_qbALbpXXmd3Yz36OUy-RpcrwpcJ5g/exec", {
+fetch("https://script.google.com/macros/s/AKfycbyIee_INYh3WnTwifKYK6k7mOOlX5RSZIvTeH-6Zz9soqfTeoJVmuCmpaWeBBFazuKq/exec", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
