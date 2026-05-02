@@ -86,8 +86,7 @@ ${knowledge}
         }
       );
     }
-    const answerText =
-  data?.content?.[0]?.text || "";
+    const answerText = data?.content?.[0]?.text || "";
 
 const lastMessage = body?.messages?.[body.messages.length - 1];
 
@@ -95,17 +94,9 @@ const userText =
   typeof lastMessage?.content === "string"
     ? lastMessage.content
     : lastMessage?.content?.[0]?.text || "";
-      
+
 // --- Google Sheets Logging ---
-const lastMessage = body?.messages?.[body.messages.length - 1];
-
-const userText =
-  typeof lastMessage?.content === "string"
-    ? lastMessage.content
-    : lastMessage?.content?.[0]?.text || "";
-
-const answerText =
-  data?.content?.[0]?.text || "";
+console.log("LOGGING START");
 
 try {
   const logRes = await fetch(
@@ -121,23 +112,13 @@ try {
     }
   );
 
-const logRes = await fetch(
-  "https://script.google.com/macros/s/AKfycbxxkiiZcUo9nvYRwrvv7UFsaZ3dsYQSneLHaeJNJhwS8Xj1YEIqZPYnLsoWUvgqXk3aAw/exec",
-  {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      question: userText,
-      answer: answerText,
-      timestamp: new Date().toISOString()
-    })
-  }
-);
+  console.log("LOG STATUS:", logRes.status);
 
-console.log("LOG STATUS:", logRes.status);
+  const logText = await logRes.text();
+  console.log("LOG RESPONSE:", logText);
 
-const logText = await logRes.text();
-console.log("LOG RESPONSE:", logText);
+} catch (err) {
+  console.error("LOG ERROR:", err);
 }
 // --- End Logging ---
 
