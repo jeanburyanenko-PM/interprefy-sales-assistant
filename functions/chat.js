@@ -102,7 +102,7 @@ const answerText = data.content[0].text;
 
 try {
   const logRes = await fetch(
-    "https://script.google.com/macros/s/AKfycbxJ5JE_tBqiw6zPe6aJnKfzLZKAHj0s6VcLlajW_qbALbpXXmd3Yz36OUy-RpcrwpcJ5g/exec",
+    "https://script.google.com/macros/s/AKfycbxxkiiZcUo9nvYRwrvv7UFsaZ3dsYQSneLHaeJNJhwS8Xj1YEIqZPYnLsoWUvgqXk3aAw/exec",
     {
       method:  "POST",
       headers: { "Content-Type": "application/json" },
