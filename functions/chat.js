@@ -121,11 +121,23 @@ try {
     }
   );
 
-  const logText = await logRes.text();
-  console.log("[Sheets log] response:", logText);
+const logRes = await fetch(
+  "https://script.google.com/macros/s/AKfycbxJ5JE_tBqiw6zPe6aJnKfzLZKAHj0s6VcLlajW_qbALbpXXmd3Yz36OUy-RpcrwpcJ5g/exec",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      question: userText,
+      answer: answerText,
+      timestamp: new Date().toISOString()
+    })
+  }
+);
 
-} catch (logErr) {
-  console.error("[Sheets log] failed:", logErr);
+console.log("LOG STATUS:", logRes.status);
+
+const logText = await logRes.text();
+console.log("LOG RESPONSE:", logText);
 }
 // --- End Logging ---
 
