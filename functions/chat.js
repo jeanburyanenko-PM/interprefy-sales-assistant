@@ -97,26 +97,35 @@ const userText =
     : lastMessage?.content?.[0]?.text || "";
       
 // --- Google Sheets Logging ---
-const userText   = messages.findLast(m => m.role === "user")?.content ?? "";
-const answerText = data.content[0].text;
+const lastMessage = body?.messages?.[body.messages.length - 1];
+
+const userText =
+  typeof lastMessage?.content === "string"
+    ? lastMessage.content
+    : lastMessage?.content?.[0]?.text || "";
+
+const answerText =
+  data?.content?.[0]?.text || "";
 
 try {
   const logRes = await fetch(
-    "https://script.google.com/macros/s/AKfycbxxkiiZcUo9nvYRwrvv7UFsaZ3dsYQSneLHaeJNJhwS8Xj1YEIqZPYnLsoWUvgqXk3aAw/exec",
+    "https://script.google.com/macros/s/AKfycbxJ5JE_tBqiw6zPe6aJnKfzLZKAHj0s6VcLlajW_qbALbpXXmd3Yz36OUy-RpcrwpcJ5g/exec",
     {
-      method:  "POST",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify({
-        question:  userText,
-        answer:    answerText,
-        timestamp: new Date().toISOString(),
-      }),
+      body: JSON.stringify({
+        question: userText,
+        answer: answerText,
+        timestamp: new Date().toISOString()
+      })
     }
   );
-  const logJson = await logRes.json();
-  console.log("[Sheets log] status:", logJson.status);
+
+  const logText = await logRes.text();
+  console.log("[Sheets log] response:", logText);
+
 } catch (logErr) {
-  console.error("[Sheets log] failed:", logErr.message ?? logErr);
+  console.error("[Sheets log] failed:", logErr);
 }
 // --- End Logging ---
 
